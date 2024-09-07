@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Name from './Name';
+import Price from './Price';
+import Description from './Description';
+import Image from './Image';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card } from 'react-bootstrap';
 
-function App() {
+const firstName = "Lazhar"; // Replace with your name or leave empty
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{ textAlign: 'center', marginTop: '50px' }}>
+      <Card style={{ width: '18rem', margin: 'auto' }}>
+        <Card.Body>
+          <Card.Title>Product Card</Card.Title>
+          <Image />
+          <Name />
+          <Price />
+          <Description />
+        </Card.Body>
+      </Card>
+      <div style={{ marginTop: '20px' }}>
+        {firstName ? (
+          <>
+            <p>Hello, {firstName}!</p>
+            <img src={`https://via.placeholder.com/150?text=${firstName}`} alt="Greeting" style={{ width: '150px', height: '150px' }} />
+          </>
+        ) : (
+          <p>Hello, there!</p>
+        )}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
